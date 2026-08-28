@@ -11,8 +11,7 @@ The goal isn't a wall of accepted solutions. It's being able to answer the follo
 Each problem lives in its own package, numbered in the order I worked through it. Each approach is a separate runnable class.
 
 ```
-src/
-└── com/
+com/
     └── interviewprep/
         └── prob01_reversestring/
             ├── Variant1_TwoPointerSwap.java
