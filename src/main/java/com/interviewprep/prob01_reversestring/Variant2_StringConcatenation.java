@@ -1,4 +1,4 @@
-package com.interviewprep.javadsavariants.prob01_reversestring;
+package com.interviewprep.prob01_reversestring;
 
 // Reverse String without using toCharArray() or StringBuilder.reverse() or any library reverse function
 public class Variant2_StringConcatenation {

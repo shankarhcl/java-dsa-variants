@@ -1,4 +1,4 @@
-package com.interviewprep.prob03_firstnonrepeatingcharacter;
+package com.interviewprep.prob03_firstnonrepeatingchar;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

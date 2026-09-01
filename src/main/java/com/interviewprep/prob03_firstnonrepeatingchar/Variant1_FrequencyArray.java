@@ -1,4 +1,4 @@
-package com.interviewprep.prob03_firstnonrepeatingcharacter;
+package com.interviewprep.prob03_firstnonrepeatingchar;
 
 // Find the first non-repeating character using a fixed-size ASCII frequency array.
 public class Variant1_FrequencyArray {
