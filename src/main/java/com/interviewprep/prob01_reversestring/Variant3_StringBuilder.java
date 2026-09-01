@@ -1,4 +1,4 @@
-package com.interviewprep.prob01_reversestring;
+package com.interviewprep.javadsavariants.prob01_reversestring;
 
 // Reverse String with StringBuilder
 public class Variant3_StringBuilder {
