@@ -1,7 +1,6 @@
 # Java DSA Variants
 
 Classic coding-interview problems solved in Java — not one solution each, but **every approach worth knowing**, with complexity analysis and the reasoning for when you'd pick one over another.
-
 The goal isn't a wall of accepted solutions. It's being able to answer the follow-up question: *"why this one?"*
 
 ---
@@ -33,6 +32,10 @@ com/
             ├── Variant1_TwoPointerSwap.java
             ├── Variant2_StringConcatenation.java
             └── Variant3_StringBuilder.java
+        └── prob02_palindromecheck/
+            ├── Variant1_TwoPointerCheck.java
+            ├── Variant2_ReverseStringCheck.java
+            └── Variant3_RecursiveCheck.java
 ```
 
 **Naming convention**
@@ -63,9 +66,14 @@ The number is the order you'd walk an interviewer through the approaches; the su
 
 ---
 
-## Featured breakdown — Problem 01: Reverse a String
+## Running the code
 
-Three solutions. All three print `semaJ`. Only one is the right answer, and which one depends entirely on the constraint you were given.
+Any file compiles and runs on its own — no build tool, no dependencies.
+Open the repo in IntelliJ IDEA / Eclipse / VS Code and run any `main()` directly.
+
+---
+
+## Featured breakdown — Problem 01: Reverse a String
 
 ### Variant 1 — Two-pointer swap
 
@@ -99,46 +107,8 @@ Variants 1 and 3 have **identical complexity** — `StringBuilder.reverse()` per
 
 ---
 
-# Problem 02 — Palindrome Check
-
-This package contains three Java variants for checking whether a string is a palindrome. The focus is not just on getting the correct output, but on understanding how the solution changes when the input rules become more realistic.
-
-A simple palindrome check is easy when the input is clean. The real interview discussion starts when the string contains spaces, punctuation, mixed casing, and constraints around helper methods.
-
----
-
-## Package
-
-package com.interviewprep.prob02_palindromecheck;
-
-
-## Files
-
-| Variant | File name | What it demonstrates |
-| --- | --- | --- |
-| 1 | `Variant1_TwoPointerBasicPalindrome.java` | Basic palindrome check using two pointers |
-| 2 | `Variant2_IgnoreNonAlphanumeric.java` | Valid palindrome check while ignoring spaces, punctuation, and case |
-| 3 | `Variant3_AsciiBasedValidPalindrome.java` | Same valid palindrome logic, but with manual ASCII checks instead of `Character` helpers |
-
----
-
-## Running the code
-
-Any file compiles and runs on its own — no build tool, no dependencies.
-
-```bash
-cd src
-javac com/interviewprep/prob01_reversestring/Variant3_StringBuilder.java
-java com.interviewprep.prob01_reversestring.Variant3_StringBuilder
-```
-
-Or open the repo in IntelliJ IDEA / Eclipse / VS Code and run any `main()` directly.
-
-
-## Problem 02: Given a string, determine whether it is a palindrome.
-
+# Problem 02: Given a string, determine whether it is a palindrome.
 A palindrome reads the same forward and backward.
-
 Examples:
 
 | Input | Output | Reason |
@@ -148,7 +118,13 @@ Examples:
 | `A man, a plan, a canal: Panama` | `true` | After ignoring spaces, punctuation, and case, it becomes a palindrome |
 | `race a car` | `false` | Valid characters do not form a palindrome |
 
----
+## Files
+
+| Variant | File name | What it demonstrates |
+| --- | --- | --- |
+| 1 | `Variant1_TwoPointerBasicPalindrome.java` | Basic palindrome check using two pointers |
+| 2 | `Variant2_IgnoreNonAlphanumeric.java` | Valid palindrome check while ignoring spaces, punctuation, and case |
+| 3 | `Variant3_AsciiBasedValidPalindrome.java` | Same valid palindrome logic, but with manual ASCII checks instead of `Character` helpers |
 
 ## Variant 1 — Basic two-pointer palindrome
 
@@ -176,18 +152,13 @@ This is the clean-input version. It compares characters from both ends and moves
 
 Use this when the input is expected to contain only the actual characters that should be compared.
 
----
-
 ## Variant 2 — Ignore spaces, punctuation, and case
 
 **File:** `Variant2_IgnoreNonAlphanumeric.java`
 
 This is closer to the common interview version of the problem: check whether a string is a valid palindrome after ignoring non-alphanumeric characters and case.
-
 Example: A man, a plan, a canal: Panama
-
 After filtering comparison rules, this becomes: amanaplanacanalpanama
-
 So the answer is `true`.
 
 ### Approach
@@ -209,8 +180,6 @@ So the answer is `true`.
 ### Why this is good
 
 This avoids creating a cleaned-up copy of the string. Instead of building another string like `amanaplanacanalpanama`, it compares characters directly while scanning.
-
----
 
 ## Variant 3 — ASCII-based valid palindrome
 
@@ -243,8 +212,6 @@ Instead, it implements both checks manually using ASCII ranges.
 
 This version is intentionally ASCII-focused. It works well for common interview inputs containing English letters, digits, spaces, and punctuation. It is not a full Unicode-aware solution.
 
----
-
 ## Key learning
 
 The core pattern across all three variants is the same: **two pointers**.
@@ -261,43 +228,7 @@ The real takeaway: an interview problem often starts simple, then adds constrain
 
 ---
 
-## How to run
-
-From the `src` directory:
-
-```bash
-javac com/interviewprep/prob02_palindromecheck/Variant2_IgnoreNonAlphanumeric.java
-java com.interviewprep.prob02_palindromecheck.Variant2_IgnoreNonAlphanumeric
-```
-
-Or open the project in IntelliJ IDEA, Eclipse, or VS Code and run any `main()` method directly.
-
----
-
-# Problem 03 — First Non-Repeating Character in a String
-
-This package contains three Java variants for finding the first character in a string that appears only once.
-The goal is simple: return the first non-repeating character based on the original order of the string.
-
-Example:
-Input:  engineeringbranch
-Output: g
-
-In `engineeringbranch`, the first character with frequency `1` is `g`.
-
----
-
-## Files
-
-| Variant | File name | What it demonstrates |
-| --- | --- | --- |
-| 1 | `Variant1_FrequencyArray.java` | Uses a fixed-size ASCII frequency array without Map |
-| 2 | `Variant2_LinkedHashMap.java` | Uses insertion order to find the first non-repeating character cleanly |
-| 3 | `Variant3_HashMapWithSecondPass.java` | Uses HashMap for frequency and scans the original string again for order |
-
----
-
-## Problem statement
+# Problem 03: First Non-Repeating Character in a String
 
 Given a string, find the first character that does not repeat.
 If no such character exists, return the null character `\0`.
@@ -310,7 +241,13 @@ Examples:
 | `swiss` | `w` | `w` is the first character that appears once |
 | `leetcode` | `l` | `l` appears once and comes first |
 
----
+## Files
+
+| Variant | File name | What it demonstrates |
+| --- | --- | --- |
+| 1 | `Variant1_FrequencyArray.java` | Uses a fixed-size ASCII frequency array without Map |
+| 2 | `Variant2_LinkedHashMap.java` | Uses insertion order to find the first non-repeating character cleanly |
+| 3 | `Variant3_HashMapWithSecondPass.java` | Uses HashMap for frequency and scans the original string again for order |
 
 ## Variant 1 — Frequency array
 
@@ -337,8 +274,6 @@ This solution avoids `Map` and uses a fixed-size array of length `256` to count 
 
 Use this when the input is limited to ASCII characters and the interviewer asks you to avoid `Map`.
 
----
-
 ## Variant 2 — LinkedHashMap
 
 **File:** `Variant2_LinkedHashMap.java`
@@ -364,8 +299,6 @@ In the worst case, when all characters are unique, space becomes O(n).
 ### When to use
 
 Use this when you want a clean, readable solution and preserving insertion order is useful.
-
----
 
 ## Variant 3 — HashMap with second pass
 
@@ -408,18 +341,5 @@ All three variants solve the same problem in O(n) time, but they make different 
 | 3 | HashMap | No, so we scan the string again | Common and practical interview solution |
 
 The main learning is that **frequency alone is not enough**. Since the question asks for the *first* non-repeating character, we must respect the original order of the string.
-
----
-
-## How to run
-
-From the `src` directory:
-
-```bash
-javac com/interviewprep/prob03_firstnonrepeatingcharacter/Variant3_HashMapWithSecondPass.java
-java com.interviewprep.prob03_firstnonrepeatingcharacter.Variant3_HashMapWithSecondPass
-```
-
-Or open the project in IntelliJ IDEA, Eclipse, or VS Code and run any `main()` method directly.
 
 ---
