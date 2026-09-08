@@ -7,7 +7,7 @@ public class Variant1_Sorting {
 
     public static void main(String[] args) {
         String original = "listen";
-        String target = "silent";
+        String target = "silxent";
 
         System.out.println("Is Anagram: " + isAnagram(original, target));
     }
